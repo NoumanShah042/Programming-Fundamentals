@@ -1,0 +1,259 @@
+Task 1:
+#include <iostream>
+#include<ctime>
+using namespace std;
+void getRandomCapitalAlpha()
+{
+	srand(time(0));
+	char c = rand() % 25 + 'A';
+	cout << c << endl;
+} 
+
+void getRandomSmallAlpha()
+{
+	srand(time(0));
+	char c = rand() % 25 + 'a';
+	cout << c << endl;
+}
+
+void getRandomDigit()
+{
+	srand(time(0));
+	int c = rand() % 10;
+	cout << c << endl;
+}
+
+void getRandomAlphaNumeric()
+{
+	srand(time(0));
+	int c = rand() % 3;
+	if (c==0)
+	{
+		char c = rand() % 25 + 'A';
+		cout << c << endl;
+	}
+	else if (c == 1)
+	{
+		char c = rand() % 25 + 'a';
+		cout << c << endl;
+	}
+	else 
+	{
+		int c = rand() % 10 ;
+		cout << c << endl;
+	}
+}
+
+int main()
+{
+	getRandomCapitalAlpha();
+	getRandomSmallAlpha();
+	getRandomDigit();
+	getRandomAlphaNumeric();
+	return 0;
+}
+
+Task 2:
+#include <iostream>
+using namespace std;
+int main()
+{
+	int n1, n2, a, b;
+	cout << "Enter two numbers: " << endl;
+	cin >> n1 >> n2;
+	a = n1;
+	b = n2;
+	while (a != b)
+	{
+		if (a == 0 || b == 0)
+		{
+			break;
+		}
+		else if (a > b)
+		{
+			a = a - b;
+		}
+		else if (b > a)
+		{
+			b = b - a;
+		}
+	}
+	if (n1 == 0)
+	{
+		cout << "0" << endl;
+	}
+	else if (n2 == 0)
+	{
+		cout << "Infinity" << endl;
+	}
+	else if (n1 % n2 == 0)
+	{
+		cout << n1 /n2 << endl;
+	}
+	else if (n1%a == 0 && n2%a == 0)
+	{
+		if (n1 > n2)
+		{
+			cout << (n1 / a) / (n2 / a) << " " << (n1 / a) % (n2 / a) << "/" << n2 / a;
+		}
+		else
+		{
+			cout << n1 / a << "/" << n2 / a;
+		}
+	}
+	else
+	{
+		cout << n1 / n2 << endl;
+	}
+	return 0;
+}
+
+Task 3:
+#include <iostream>
+using namespace std;
+int main()
+{
+	int y, m, d;
+	cin >> d >> m >> y;
+	if (y % 100 == 0 && y % 400 != 0 && y % 4 == 0)
+	{
+		if (m==12 && d==31)
+		{
+			y = y + 1;
+			m = 1;
+			d = 1;
+			cout << d << "/" << m << "/" << y;
+		}
+		else if ((m == 1) && (d == 31) || (m == 3) && (d == 31) || (m == 5) && (d == 31) || (m == 7) && (d == 31) || (m == 8) && (d == 31) || (m == 10) && (d == 31) || (m == 12) && (d == 31))
+			{
+			m = m + 1;
+			d = 1;
+			cout << d << "/" << m << "/" << y;
+			}
+		
+		else if ((m == 4) && (d == 30) || (m == 6) && (d == 30) || (m == 9) && (d == 30) || (m == 11) && (d == 30))
+			{
+			m = m + 1;
+			d = 1;
+			cout << d << "/" << m << "/" << y;
+			}	
+		else if (m == 2 && d == 29)
+			{
+			m = m + 1;
+			d = 1;
+			cout << d << "/" << m << "/" << y;
+			}
+		else
+		{
+			d = d + 1;
+			cout << d << "/" << m << "/" << y;
+		}
+	}
+	else
+	{
+		if (m == 12 && d == 31)
+		{
+			y = y + 1;
+			m = 1;
+			d = 1;
+			cout << d << "/" << m << "/" << y;
+		}
+		else if ((m == 1) && (d == 31) || (m == 3) && (d == 31) || (m == 5) && (d == 31) || (m == 7) && (d == 31) || (m == 8) && (d == 31) || (m == 10) && (d == 31) || (m == 12) && (d == 31))
+		{
+			m = m + 1;
+			d = 1;
+			cout << d << "/" << m << "/" << y;
+		}
+
+		else if ((m == 4) && (d == 30) || (m == 6) && (d == 30) || (m == 9) && (d == 30) || (m == 11) && (d == 30))
+		{
+			m = m + 1;
+			d = 1;
+			cout << d << "/" << m << "/" << y;
+		}
+		else if (m == 2 && d == 28)
+		{
+			m = m + 1;
+			d = 1;
+			cout << d << "/" << m << "/" << y;
+		}
+		else
+		{s
+			d = d + 1;
+			cout << d << "/" << m << "/" << y;
+		}
+	}
+	return 0;
+}
+
+Task 4:
+#include <iostream>
+using namespace std;
+int main()
+{
+	int i, j, k, n,n1,n2;
+	cin >> n;
+	for ( i = 0; i <=n; i++)
+	{
+		for ( j = 0; j <= n; j++)
+		{
+			for ( k = 0; k <= n; k++)
+			{
+				if ((i*i)+(j*j)==(k*k) && i!=0 && j!=0 && k!=0 && i<j && j<k)
+				{
+					n1 = i;
+					n2 = j;
+					while (n1 != n2)
+					{
+						if (n1 > n2)
+							n1 = n1 - n2;
+						else
+							n2 = n2 - n1;
+					}
+					if (n1==1 &&n2==1)
+					{
+						cout << "(" << i << "," << j << "," << k << ")" << endl;
+					}
+				}
+			}
+		}
+	}
+	return 0;
+}
+
+Task 5:
+#include <iostream>
+#include<cmath>
+using namespace std;
+int main()
+{
+	int n, s,t,i,j=0,k=0;
+	double result = 0,a=0;
+	cout << "Number:" << endl;
+	cin >> n;
+	cout << "Source base:" << endl;
+	cin >> s;
+	cout << "Target base:" << endl;
+	cin >> t;
+	while (n!=0) //convert number into decimal base
+	{
+		if (n%10>=s)
+		{
+			cout << "Invalid Input" << endl;
+			break;
+		}
+		result = result + (n%10)*(pow(s,j));
+		j = j + 1;
+		n = n / 10;
+	}
+	n = result;
+	while (n>0) //convert number into target base
+	{
+		i = n % t;
+		a = a + i*(pow(10,k));
+		n = n / t;
+		k = k + 1;
+	}
+	cout << a;
+	return 0;
+}

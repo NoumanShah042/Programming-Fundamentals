@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+
+
+////int * a()
+//{
+//	int a = 50;
+//	int * p = &a;
+//	return p;
+//}
+
+int & fun()
+{
+	static int x = 10;
+	return x;
+
+
+
+}
+
+int main()
+{
+
+	fun() = 30;
+	cout << fun();
+	return 0;
+
+	
+}

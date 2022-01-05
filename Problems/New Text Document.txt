@@ -1,0 +1,124 @@
+#include <iostream>
+using namespace std;
+int getNumberOfDigits(int num)
+{
+	int length;
+	length = 0;
+	while (num != 0)
+	{
+		num = num / 10;
+		length = length + 1;
+	}
+	return length;
+}
+int calculatePower(int a, int b)
+{
+	int  i = 1, result = 1;
+	while (i <= b)
+	{
+		result = result * a;
+		i = i + 1;
+	}
+	return result;
+}
+void rotateNumber(int n, int k=1)
+{
+	int  result, l = 0, m;
+	result=calculatePower(10, getNumberOfDigits(n) - 1);
+	while (l != k)
+	{
+		m = ((n%result) * 10) + (n / result);
+		l = l + 1;
+		n = m;
+	}
+	cout << m << endl;
+}
+int main()
+{
+
+	rotateNumber(10045);
+	
+}
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+bool isPrime(int n)
+{
+	int i = 2;
+	while (n%i != 0)
+	{
+		i = i + 1;
+	}
+	if (n == i)
+	{
+		cout << "Prime" << endl;
+		return true;
+	}
+	else
+	{
+		cout << "Not Prime" << endl;
+		return false;
+	}
+}
+bool isPythagoreanPrime(int n)
+{
+	if ((n - 1) % 4 == 0 )
+	{
+		cout << "Pythagorean Prime";
+		return true;
+	}
+	else
+	{
+		cout << "Not Pythagorean Prime";
+		return false;
+	}
+}
+int main()
+{
+	int n;
+	cin >> n;
+	isPythagoreanPrime(isPrime(n));
+
+}
+
+#include <iostream>
+#include<cmath>
+using namespace std;
+long long reverseDigits(long long n)
+{
+	long long a;
+	int   l = 0;
+	double b = 0;
+	a = n;
+	while (n != 0) //get length of input
+	{
+		n = n / 10;
+		l = l + 1;
+	}
+	while (a != 0) //reverse digit of input
+	{
+		b = b + (a % 10)*pow(10, l - 1);
+		a = a / 10;
+		l = l - 1;
+	}
+	return b;
+}
+bool isPalindrome(long long n,long long b)
+{
+	if (n==b)
+	{
+		cout << "Palindrome=" << n << endl;
+		return true;
+	}
+	else
+	{
+		cout << "Not Palindrome=" << n << endl;
+		return false;
+	}
+}
+int main()
+{
+	isPalindrome(9339,reverseDigits(9339));
+
+}

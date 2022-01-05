@@ -1,0 +1,208 @@
+#include <iostream>
+#include<iomanip>
+using namespace std;
+void calculateFictorial(int num)
+{
+	int fact, i;
+	i = num;
+	fact = 1;
+	while (i >= 1)
+	{
+	fact = fact * i;
+	i = i - 1;
+	}
+	cout<<fact;
+}
+void oddEvenApp(int num)
+{
+	bool result;
+	if (num%2==0)
+	{
+		cout << "Even";
+	}
+	cout << "Odd";
+}
+int main()
+{
+	calculateFictorial(3);
+	oddEvenApp(5);
+}
+
+void getLength(int num)
+{
+	int  length;
+	length = 0;
+	cin >> num;
+	while (num != 0)
+	{
+		num = num / 10;
+		length = length + 1;
+	}
+	cout << length << endl;
+}
+#include <iostream>
+#include<iomanip>
+using namespace std;
+int main()
+{
+	int a,num,i, divisor = 1,length=0;
+	cin >> num;
+	a = num;
+	while (num != 0)
+	{
+		num = num / 10;
+		length = length + 1;
+	}
+	num = a;
+	while ((num / divisor) >= 10)
+	{
+		divisor = divisor * 10;
+	}
+	i = 1;
+	cout << a << "\n";
+	while (i<=(length-1))
+	{
+		cout << ((a%divisor) * 10) + (a / divisor) << endl;
+		i = i + 1;
+		a = ((a%divisor) * 10) + (a / divisor);
+	}
+	return 0;
+}
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int a, b, carry = 0, i = 0;
+	cin >> a;
+	cin >> b;
+	if (a>b)
+	{
+		while (b != 0)
+		{
+			if (((a%10+b%10)+i)>=10)
+			{
+				carry = carry + 1;
+				i = (a % 10 + b % 10) / 10;
+				b = b / 10;
+				a = a / 10;
+			}
+			else if (((a % 10 + b % 10) + i) < 10)
+			{
+				i = (a % 10 + b % 10) / 10;
+				b = b / 10;
+				a = a / 10;
+			}
+		}
+		cout << carry << endl;
+	}
+	else
+	{
+		while (a != 0)
+		{
+			if (((a % 10 + b % 10) + i) >= 10)
+			{
+				carry = carry + 1;
+				i = (a % 10 + b % 10) / 10;
+				b = b / 10;
+				a = a / 10;
+			}
+			else if (((a % 10 + b % 10) + i) < 10)
+			{
+				i = (a % 10 + b % 10) / 10;
+				b = b / 10;
+				a = a / 10;
+			}
+		}
+		cout << carry << endl;
+	}
+	return 0;
+}
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	char choice='y';
+	while (choice=='y')
+	{
+		cout << "do you want to continue y/n";
+		cin >> choice;
+	}
+	return 0;
+}
+
+#include<iostream>
+#include<ctime>
+using namespace std;
+int main()
+{
+	srand(time(0));
+	char c = rand() % 25 + 'A';
+//  char c = rand() % 25 + 65;   Both line 7 and 8 are same
+	cout << c;
+	return 0;
+}
+#include<iostream>
+using namespace std;
+int main()
+{
+	int  b = 52, i = 2;
+	while (b>1)
+	{
+		while (b%i!=0)
+		{
+			i = i + 1;
+		}
+		cout << i << endl;
+		b = b / i;
+	}
+	return 0;
+}
+#include<iostream>
+using namespace std;
+int main()
+{
+	int L,N, W, H,i=1;
+	cin >> L;
+	cin >> N;
+	while (i<=N)
+	{
+		cin >> W >> H;
+		if (W == L && H == L)
+		{
+			cout << "ACCEPTED\n";
+		}
+		else if ((W < L || H < L) || (W >= L && H < L) || (W < L && H >= L))
+		{
+			cout << "UPLOAD ANOTHER\n";
+		}
+		else if ((W > L && H > L) || (W > L && H == L) || (W == L && H > L))
+		{
+			cout << "CROP IT\n";
+		}
+		i = i + 1;
+	}
+	return 0;
+}
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n1, n2;
+
+	cout << "Enter two numbers: ";
+	cin >> n1 >> n2;
+
+	while (n1 != n2)
+	{
+		if (n1 > n2)
+			n1 =n1- n2;
+		else
+			n2 =n2- n1;
+	}
+
+	cout << "HCF = " << n1;
+	return 0;
+}
